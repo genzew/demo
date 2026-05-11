@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "扫码开门",
+  "usingComponents": {
+    "van-button": "/miniprogram_npm/@vant/weapp/button/index"
+  }
+}

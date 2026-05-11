@@ -1,0 +1,19 @@
+<view class="page">
+  <van-cell-group inset title="消息通知">
+    <van-cell title="开启推送">
+      <van-switch slot="right-icon" checked="{{ pushEnabled }}" size="20px" bind:change="onPushChange" />
+    </van-cell>
+    <van-cell title="允许定位">
+      <van-switch slot="right-icon" checked="{{ locationEnabled }}" size="20px" bind:change="onLocChange" />
+    </van-cell>
+    <van-cell title="个性化推荐">
+      <van-switch slot="right-icon" checked="{{ privacyEnabled }}" size="20px" bind:change="onPrivChange" />
+    </van-cell>
+  </van-cell-group>
+
+  <van-cell-group inset>
+    <van-cell title="清除缓存" is-link bindtap="onClearCache" />
+    <van-cell title="关于我们" is-link bindtap="onAbout" />
+    <van-cell title="当前版本" value="{{ version }}" />
+  </van-cell-group>
+</view>

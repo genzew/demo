@@ -1,0 +1,28 @@
+.status-card { text-align: center; padding: 40rpx 0; }
+.status-text { font-size: 36rpx; font-weight: 600; }
+.status-pending_pay { color: #ee0a24; }
+.status-paid        { color: #1989fa; }
+.status-in_use      { color: #07c160; }
+.status-finished    { color: #969799; }
+.status-cancelled   { color: #969799; }
+
+.door { text-align: center; padding: 32rpx 24rpx; }
+.door-title { color: #969799; }
+.door-code {
+  font-family: 'Courier New', monospace;
+  font-size: 88rpx;
+  font-weight: 700;
+  letter-spacing: 16rpx;
+  color: #1989fa;
+  padding: 24rpx 0;
+}
+.door-actions { display: flex; align-items: center; }
+
+.bottom-bar {
+  padding: 24rpx;
+  margin-top: 24rpx;
+  padding-bottom: calc(24rpx + env(safe-area-inset-bottom));
+}
+
+.extend-popup { padding: 32rpx; }
+.popup-title { font-size: 32rpx; font-weight: 600; }

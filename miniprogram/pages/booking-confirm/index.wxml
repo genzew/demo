@@ -1,0 +1,108 @@
+<view class="page booking-confirm" wx:if="{{ store && room }}">
+  <view class="card room-summary">
+    <image src="{{ room.image }}" mode="aspectFill" class="room-img" />
+    <view class="flex-1 ml">
+      <view class="title text-ellipsis">{{ store.name }}</view>
+      <view class="muted text-ellipsis">{{ room.name }} · 可容纳{{ room.capacity }}人</view>
+      <view class="price">
+        <text class="symbol">¥</text>
+        <text class="num">{{ (room.hourPrice / 100).toFixed(0) }}</text>
+        <text class="muted">/小时</text>
+      </view>
+    </view>
+  </view>
+
+  <van-cell-group inset>
+    <van-cell title="预订日期" value="{{ dateLabel }}" is-link bindtap="onChangeDate" />
+    <van-cell title="开始时间">
+      <view slot="default" class="time-grid">
+        <view
+          wx:for="{{ hourSlots }}"
+          wx:key="*this"
+          class="time-chip {{ startTime === item ? 'active' : '' }}"
+          data-time="{{ item }}"
+          bindtap="onPickStart"
+        >{{ item }}</view>
+      </view>
+    </van-cell>
+    <van-cell title="时长(小时)">
+      <view slot="default">
+        <van-stepper value="{{ hours }}" min="1" max="12" bind:change="onChangeHours" />
+      </view>
+    </van-cell>
+    <van-cell title="人数">
+      <view slot="default">
+        <van-stepper value="{{ headcount }}" min="1" max="{{ room.capacity }}" bind:change="onChangeHeadcount" />
+      </view>
+    </van-cell>
+  </van-cell-group>
+
+  <van-cell-group inset>
+    <van-cell
+      title="优惠券"
+      value="{{ couponAmount > 0 ? '已优惠 ¥' + (couponAmount / 100).toFixed(2) : (couponList.length > 0 ? couponList.length + ' 张可用' : '暂无可用') }}"
+      is-link
+      bindtap="onPickCoupon"
+    />
+    <van-field
+      label="备注"
+      value="{{ remark }}"
+      placeholder="到店人姓名或备注（选填）"
+      autosize
+      type="textarea"
+      bind:input="onRemarkInput"
+    />
+  </van-cell-group>
+
+  <view class="card occupied-card" wx:if="{{ occupied.length > 0 }}">
+    <view class="muted">该日已被占用时段：</view>
+    <view class="row tags" style="margin-top: 8rpx;">
+      <van-tag wx:for="{{ occupied }}" wx:key="start" type="warning" plain custom-class="tag-item">
+        {{ item.start }} - {{ item.end }}
+      </van-tag>
+    </view>
+  </view>
+
+  <view style="height: 140rpx;"></view>
+
+  <van-submit-bar
+    price="{{ (room.hourPrice * hours - couponAmount) }}"
+    button-text="微信支付"
+    loading="{{ submitting }}"
+    bind:submit="onSubmit"
+  />
+
+  <van-popup show="{{ showDatePopup }}" position="bottom" bind:close="onCancelDate">
+    <van-datetime-picker
+      type="date"
+      value="{{ minDate }}"
+      min-date="{{ minDate }}"
+      max-date="{{ maxDate }}"
+      bind:confirm="onConfirmDate"
+      bind:cancel="onCancelDate"
+    />
+  </van-popup>
+
+  <van-popup show="{{ showCouponPopup }}" position="bottom" round bind:close="onCouponClose">
+    <view class="coupon-popup">
+      <view class="popup-title">选择优惠券</view>
+      <view
+        class="coupon-row"
+        wx:for="{{ couponList }}"
+        wx:key="id"
+        data-coupon="{{ item }}"
+        bindtap="onCouponSelect"
+      >
+        <view class="amount">
+          <text class="symbol">¥</text>
+          <text class="num">{{ (item.amount / 100).toFixed(0) }}</text>
+        </view>
+        <view class="flex-1 ml">
+          <view class="title">{{ item.title }}</view>
+          <view class="muted">{{ item.desc }} · 至 {{ item.expireAt }}</view>
+        </view>
+      </view>
+      <view class="coupon-clear" bindtap="onCouponClear">不使用优惠券</view>
+    </view>
+  </van-popup>
+</view>

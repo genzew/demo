@@ -1,0 +1,8 @@
+.login { padding: 120rpx 60rpx; text-align: center; }
+.logo image { width: 160rpx; height: 160rpx; border-radius: 32rpx; }
+.brand { font-size: 48rpx; font-weight: 700; margin-top: 32rpx; }
+.slogan { color: #969799; margin-top: 8rpx; }
+.actions { margin-top: 120rpx; }
+.policy { display: flex; align-items: center; justify-content: center; margin-top: 40rpx; font-size: 22rpx; color: #969799; }
+.policy-text { margin: 0 6rpx; }
+.policy-link { color: #1989fa; }

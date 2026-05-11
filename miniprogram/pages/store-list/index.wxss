@@ -1,0 +1,18 @@
+.sort-bar {
+  display: flex;
+  justify-content: space-around;
+  background: #fff;
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid var(--gray-3);
+}
+.sort-item {
+  font-size: 26rpx;
+  color: #646566;
+  padding: 4rpx 16rpx;
+  border-radius: 24rpx;
+}
+.sort-item.active {
+  color: #fff;
+  background: var(--primary-color);
+  font-weight: 500;
+}

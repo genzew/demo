@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/store-list/index",
+    "pages/store-detail/index",
+    "pages/booking-confirm/index",
+    "pages/booking-success/index",
+    "pages/order-list/index",
+    "pages/order-detail/index",
+    "pages/open-door/index",
+    "pages/scan/index",
+    "pages/mine/index",
+    "pages/login/index",
+    "pages/coupon/index",
+    "pages/invite/index",
+    "pages/feedback/index",
+    "pages/settings/index",
+    "pages/address/index",
+    "pages/invoice/index"
+  ],
+  "tabBar": {
+    "color": "#7d7e80",
+    "selectedColor": "#1989fa",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      { "pagePath": "pages/index/index",      "text": "首页" },
+      { "pagePath": "pages/store-list/index", "text": "门店" },
+      { "pagePath": "pages/order-list/index", "text": "订单" },
+      { "pagePath": "pages/mine/index",       "text": "我的" }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "包厢预订",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": false
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "用于获取附近门店"
+    }
+  },
+  "requiredPrivateInfos": ["getLocation", "chooseLocation"],
+  "lazyCodeLoading": "requiredComponents",
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

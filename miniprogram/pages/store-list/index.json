@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "门店列表",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "van-search": "/miniprogram_npm/@vant/weapp/search/index",
+    "van-skeleton": "/miniprogram_npm/@vant/weapp/skeleton/index",
+    "store-card": "/components/store-card/index",
+    "empty-state": "/components/empty-state/index"
+  }
+}

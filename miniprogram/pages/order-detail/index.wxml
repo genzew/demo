@@ -1,0 +1,66 @@
+<view class="page" wx:if="{{ order }}">
+  <view class="card status-card">
+    <view class="status-text status-{{ order.status }}">{{ statusLabel[order.status] }}</view>
+    <view class="muted" wx:if="{{ order.status === 'pending_pay' }}">请尽快完成支付</view>
+    <view class="muted" wx:if="{{ order.status === 'paid' || order.status === 'in_use' }}">点击下方按钮一键开门</view>
+  </view>
+
+  <view class="card door" wx:if="{{ order.status === 'paid' || order.status === 'in_use' }}">
+    <view class="door-title">开门码</view>
+    <view class="door-code">{{ order.doorCode }}</view>
+    <view class="door-actions">
+      <van-button type="primary" round bindtap="onOpen" custom-style="flex:1; margin-right:16rpx;">一键开门</van-button>
+      <van-button plain round bindtap="onShowDoorCode" custom-style="flex:1;">门锁验证码</van-button>
+    </view>
+  </view>
+
+  <van-cell-group inset>
+    <van-cell title="门店" value="{{ order.storeName }}" />
+    <van-cell title="地址" value="{{ order.storeAddress }}" />
+    <van-cell title="包厢" value="{{ order.roomName }}" />
+    <van-cell title="时间" value="{{ order.date }} {{ order.startTime }}-{{ order.endTime }}" />
+    <van-cell title="时长" value="{{ order.hours }} 小时" />
+    <van-cell title="人数" value="{{ order.headcount }} 人" />
+    <van-cell wx:if="{{ order.remark }}" title="备注" value="{{ order.remark }}" />
+  </van-cell-group>
+
+  <van-cell-group inset>
+    <van-cell title="订单号" value="{{ order.orderId }}" />
+    <van-cell title="原价" value="¥{{ (order.totalAmount / 100).toFixed(2) }}" />
+    <van-cell wx:if="{{ order.couponAmount > 0 }}" title="优惠" value="-¥{{ (order.couponAmount / 100).toFixed(2) }}" value-class="text-danger" />
+    <van-cell title="实付" value="¥{{ (order.payAmount / 100).toFixed(2) }}" />
+  </van-cell-group>
+
+  <view class="bottom-bar safe-area">
+    <van-button wx:if="{{ order.status === 'pending_pay' }}" type="primary" round block bindtap="onPay">立即支付</van-button>
+    <view wx:if="{{ order.status === 'paid' || order.status === 'in_use' }}" class="row" style="gap:16rpx;">
+      <van-button plain round custom-style="flex:1;" bindtap="onShowExtend">续时</van-button>
+      <van-button plain round custom-style="flex:1;" bindtap="onCallStore">联系门店</van-button>
+    </view>
+    <view wx:if="{{ order.status === 'pending_pay' || order.status === 'paid' }}" style="margin-top:16rpx;">
+      <van-button plain round block bindtap="onCancel">取消订单</van-button>
+    </view>
+    <view wx:if="{{ order.status === 'finished' }}">
+      <van-button plain round block bindtap="onApplyInvoice">申请发票</van-button>
+    </view>
+  </view>
+
+  <van-popup show="{{ showExtend }}" round position="bottom" bind:close="onCloseExtend">
+    <view class="extend-popup">
+      <view class="popup-title">在线续时</view>
+      <view class="muted">每小时 ¥{{ (order.hourPrice / 100).toFixed(0) }}</view>
+      <view class="row" style="margin: 32rpx 0;">
+        <text>续时时长</text>
+        <view style="margin-left:auto;">
+          <van-stepper value="{{ extendHours }}" min="1" max="6" bind:change="onExtendChange" />
+        </view>
+      </view>
+      <view class="row-between">
+        <text>需补支付</text>
+        <text class="text-danger">¥{{ (order.hourPrice * extendHours / 100).toFixed(2) }}</text>
+      </view>
+      <view style="height:24rpx;"></view>
+      <van-button type="primary" round block bindtap="onExtendConfirm">确认续时</van-button>
+    </view>
+  </van-popup>
+</view>

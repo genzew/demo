@@ -1,0 +1,9 @@
+{
+  "name": "demo-booking-miniprogram",
+  "version": "1.0.0",
+  "description": "包厢预订微信小程序",
+  "private": true,
+  "dependencies": {
+    "@vant/weapp": "^1.11.7"
+  }
+}

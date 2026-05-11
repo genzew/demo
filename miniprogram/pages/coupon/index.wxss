@@ -1,0 +1,9 @@
+.coupon {
+  display: flex;
+  align-items: center;
+  border-left: 8rpx solid #ee0a24;
+}
+.amount { width: 180rpx; text-align: center; }
+.amount .symbol { color: #ee0a24; font-size: 28rpx; }
+.amount .num { color: #ee0a24; font-size: 56rpx; font-weight: 700; }
+.info .title { font-weight: 600; font-size: 28rpx; }

@@ -1,0 +1,15 @@
+{
+  "navigationBarTitleText": "确认预订",
+  "usingComponents": {
+    "van-cell": "/miniprogram_npm/@vant/weapp/cell/index",
+    "van-cell-group": "/miniprogram_npm/@vant/weapp/cell-group/index",
+    "van-icon": "/miniprogram_npm/@vant/weapp/icon/index",
+    "van-button": "/miniprogram_npm/@vant/weapp/button/index",
+    "van-popup": "/miniprogram_npm/@vant/weapp/popup/index",
+    "van-datetime-picker": "/miniprogram_npm/@vant/weapp/datetime-picker/index",
+    "van-stepper": "/miniprogram_npm/@vant/weapp/stepper/index",
+    "van-field": "/miniprogram_npm/@vant/weapp/field/index",
+    "van-submit-bar": "/miniprogram_npm/@vant/weapp/submit-bar/index",
+    "van-tag": "/miniprogram_npm/@vant/weapp/tag/index"
+  }
+}

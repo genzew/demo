@@ -1,0 +1,10 @@
+.success { padding: 80rpx 40rpx; }
+.hero { text-align: center; padding: 40rpx 0 60rpx; }
+.hero .title { font-size: 42rpx; font-weight: 700; margin-top: 24rpx; }
+.hero .subtitle { color: #969799; margin-top: 8rpx; }
+.info { padding: 32rpx 24rpx; }
+.info-row { padding: 16rpx 0; border-bottom: 1rpx solid var(--gray-3); }
+.info-row:last-child { border-bottom: 0; }
+.info-row .label { color: #969799; }
+.amount { color: #ee0a24; font-weight: 600; }
+.actions { padding: 40rpx 0 0; }

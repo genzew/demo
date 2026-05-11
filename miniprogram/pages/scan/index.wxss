@@ -1,0 +1,2 @@
+.scan-page { padding: 80rpx 40rpx; text-align: center; }
+.hint { color: #969799; padding: 80rpx 0; }

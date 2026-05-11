@@ -1,0 +1,4 @@
+<view class="page scan-page">
+  <view class="hint">请扫描包厢门上的二维码</view>
+  <van-button type="primary" block round bindtap="rescan">重新扫描</van-button>
+</view>

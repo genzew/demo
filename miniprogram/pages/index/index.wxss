@@ -1,0 +1,68 @@
+.index .header {
+  background: linear-gradient(180deg, #e8f3ff 0%, #f5f6fa 100%);
+  padding: 24rpx 0 0;
+}
+
+.location-bar {
+  padding: 0 32rpx 12rpx;
+}
+.location { gap: 8rpx; font-size: 28rpx; font-weight: 500; }
+.loc-text { color: #1f1f1f; }
+.scan-entry { gap: 8rpx; color: #1989fa; font-size: 26rpx; }
+
+.banner {
+  height: 280rpx;
+  margin: 16rpx 24rpx 0;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+.banner-img { width: 100%; height: 100%; }
+.banner-title {
+  position: absolute;
+  left: 24rpx;
+  bottom: 24rpx;
+  color: #fff;
+  font-size: 32rpx;
+  font-weight: 600;
+  text-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.4);
+}
+
+.quick-grid {
+  margin: 24rpx 24rpx 0;
+  background: #fff;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.more { color: #969799; font-size: 24rpx; font-weight: normal; }
+
+.activity-scroll {
+  white-space: nowrap;
+  padding: 0 24rpx 12rpx;
+}
+.activity-card {
+  display: inline-flex;
+  flex-direction: column;
+  width: 280rpx;
+  height: 280rpx;
+  margin-right: 16rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+.activity-cover { width: 100%; height: 180rpx; }
+.activity-tag {
+  position: absolute;
+  top: 12rpx;
+  left: 12rpx;
+  padding: 2rpx 12rpx;
+  background: rgba(238, 10, 36, 0.85);
+  color: #fff;
+  font-size: 20rpx;
+  border-radius: 6rpx;
+}
+.activity-info { padding: 12rpx 16rpx; }
+.activity-title { font-size: 26rpx; font-weight: 600; }
+.activity-desc { font-size: 22rpx; color: #969799; margin-top: 4rpx; }

@@ -1,0 +1,51 @@
+.store-card {
+  display: flex;
+  background: #fff;
+  border-radius: 16rpx;
+  overflow: hidden;
+  margin: 16rpx 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+.cover {
+  width: 220rpx;
+  height: 200rpx;
+  flex-shrink: 0;
+}
+
+.content {
+  flex: 1;
+  padding: 16rpx 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+}
+
+.title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #1f1f1f;
+}
+
+.meta { gap: 8rpx; }
+.rating { color: #ff8a3d; font-size: 24rpx; font-weight: 500; }
+.muted { color: #969799; font-size: 24rpx; }
+.dot { margin: 0 4rpx; }
+
+.tags { gap: 8rpx; flex-wrap: wrap; }
+.tag-item { margin-right: 8rpx; }
+
+.footer {
+  margin-top: 4rpx;
+}
+
+.address {
+  flex: 1;
+  font-size: 22rpx;
+  color: #969799;
+  margin-right: 12rpx;
+}
+
+.price .symbol { color: #ee0a24; font-size: 22rpx; }
+.price .num { color: #ee0a24; font-size: 32rpx; font-weight: 600; margin: 0 4rpx; }

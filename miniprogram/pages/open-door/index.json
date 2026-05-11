@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "智能开门",
+  "usingComponents": {
+    "van-icon": "/miniprogram_npm/@vant/weapp/icon/index",
+    "van-button": "/miniprogram_npm/@vant/weapp/button/index"
+  }
+}

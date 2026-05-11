@@ -1,0 +1,34 @@
+<view class="page feedback">
+  <view class="card">
+    <view class="muted" style="padding-bottom:12rpx;">反馈类型</view>
+    <view class="type-grid">
+      <view
+        wx:for="{{ typeOptions }}"
+        wx:key="value"
+        class="type-chip {{ type === item.value ? 'active' : '' }}"
+        data-value="{{ item.value }}"
+        bindtap="onTypeChange"
+      >{{ item.label }}</view>
+    </view>
+  </view>
+  <van-cell-group inset>
+    <van-field
+      label="内容"
+      type="textarea"
+      autosize
+      maxlength="200"
+      placeholder="请描述问题或建议"
+      bind:input="onContentInput"
+      value="{{ content }}"
+    />
+    <van-field
+      label="联系方式"
+      placeholder="手机号或微信号（选填）"
+      bind:input="onContactInput"
+      value="{{ contact }}"
+    />
+  </van-cell-group>
+  <view style="padding: 32rpx;">
+    <van-button type="primary" round block loading="{{ submitting }}" bindtap="onSubmit">提交反馈</van-button>
+  </view>
+</view>

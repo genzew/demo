@@ -1,0 +1,1 @@
+<van-empty image="{{ image }}" description="{{ text }}" />

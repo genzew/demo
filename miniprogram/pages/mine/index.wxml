@@ -1,0 +1,54 @@
+<view class="page mine">
+  <view class="profile-bg">
+    <view class="profile" wx:if="{{ logged && user }}">
+      <image class="avatar" src="{{ user.avatar }}" mode="aspectFill" />
+      <view class="flex-1 ml">
+        <view class="nickname">{{ user.nickname }}</view>
+        <view class="phone">{{ user.phone }}</view>
+      </view>
+      <view class="vip">VIP{{ user.vipLevel }}</view>
+    </view>
+    <view class="profile" wx:else bindtap="goLogin">
+      <image class="avatar" src="https://img01.yzcdn.cn/vant/cat.jpeg" mode="aspectFill" />
+      <view class="flex-1 ml">
+        <view class="nickname">点击登录</view>
+        <view class="phone">登录后享更多权益</view>
+      </view>
+      <van-icon name="arrow" color="#fff" />
+    </view>
+    <view class="stats" wx:if="{{ logged && user }}">
+      <view class="stat-item">
+        <view class="stat-num">{{ user.bookingCount }}</view>
+        <view class="stat-label">预订次数</view>
+      </view>
+      <view class="stat-item">
+        <view class="stat-num">{{ user.couponCount }}</view>
+        <view class="stat-label">优惠券</view>
+      </view>
+      <view class="stat-item">
+        <view class="stat-num">¥0</view>
+        <view class="stat-label">余额</view>
+      </view>
+    </view>
+  </view>
+
+  <van-cell-group inset>
+    <van-cell title="我的订单" icon="orders-o" is-link data-url="/pages/order-list/index" bindtap="navigate" />
+    <van-cell title="优惠券" icon="coupon-o" is-link data-url="/pages/coupon/index" bindtap="navigate" />
+    <van-cell title="邀请好友" icon="friends-o" is-link data-url="/pages/invite/index" bindtap="navigate" />
+    <van-cell title="消费记录" icon="balance-list-o" is-link data-url="/pages/order-list/index" bindtap="navigate" />
+    <van-cell title="发票申请" icon="bill-o" is-link data-url="/pages/invoice/index" bindtap="navigate" />
+  </van-cell-group>
+
+  <van-cell-group inset>
+    <van-cell title="客服反馈" icon="service-o" is-link data-url="/pages/feedback/index" bindtap="navigate" />
+    <van-cell title="我的地址" icon="location-o" is-link data-url="/pages/address/index" bindtap="navigate" />
+    <van-cell title="设置" icon="setting-o" is-link data-url="/pages/settings/index" bindtap="navigate" />
+  </van-cell-group>
+
+  <view class="logout" wx:if="{{ logged }}">
+    <van-button plain block round bindtap="onLogout">退出登录</van-button>
+  </view>
+
+  <button class="share-btn" open-type="share" wx:if="{{ false }}">share</button>
+</view>

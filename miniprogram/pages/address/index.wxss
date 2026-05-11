@@ -1,0 +1,4 @@
+.record { padding: 24rpx; }
+.type { font-weight: 600; }
+.amount.neg { color: #323233; font-weight: 600; }
+.amount.pos { color: #07c160; font-weight: 600; }

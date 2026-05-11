@@ -1,0 +1,17 @@
+<view class="page login">
+  <view class="logo">
+    <image src="https://img01.yzcdn.cn/vant/cat.jpeg" mode="aspectFill" />
+  </view>
+  <view class="brand">包厢预订</view>
+  <view class="slogan">一键预订 · 智能开门 · 时刻畅享</view>
+
+  <view class="actions">
+    <van-button type="primary" round block icon="wechat" loading="{{ loading }}" bindtap="onWxLogin">微信一键登录</van-button>
+  </view>
+
+  <view class="policy">
+    <van-checkbox value="{{ agreed }}" bind:change="onAgreeChange" shape="square" icon-size="14px"></van-checkbox>
+    <text class="policy-text">已阅读并同意</text>
+    <text class="policy-link" bindtap="onPolicy">《用户协议与隐私政策》</text>
+  </view>
+</view>

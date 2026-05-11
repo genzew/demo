@@ -1,0 +1,19 @@
+<view class="page open-door" wx:if="{{ order }}">
+  <view class="card head">
+    <view class="store">{{ order.storeName }}</view>
+    <view class="muted">{{ order.roomName }}</view>
+  </view>
+
+  <view class="circle-wrap" bindtap="onOpen">
+    <view class="circle {{ opening ? 'opening' : '' }} {{ success ? 'success' : '' }}">
+      <van-icon name="{{ success ? 'checked' : 'description' }}" size="120rpx" color="#fff" />
+      <view class="circle-text">{{ success ? '已开门' : (opening ? '开门中…' : '点击开门') }}</view>
+    </view>
+  </view>
+
+  <view class="hint muted">请确认到达包厢门口后再操作</view>
+
+  <view class="alt-actions">
+    <van-button plain block round bindtap="onBluetooth">蓝牙开门（备选）</van-button>
+  </view>
+</view>

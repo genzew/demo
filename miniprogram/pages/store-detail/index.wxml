@@ -1,0 +1,65 @@
+<view class="page store-detail" wx:if="{{ store }}">
+  <swiper class="gallery" indicator-dots autoplay circular>
+    <swiper-item wx:for="{{ store.images }}" wx:key="*this" data-current="{{ item }}" bindtap="onPreviewImage">
+      <image src="{{ item }}" mode="aspectFill" class="gallery-img" />
+    </swiper-item>
+  </swiper>
+
+  <view class="card">
+    <view class="title">{{ store.name }}</view>
+    <view class="row meta">
+      <text class="rating">★ {{ store.rating }}</text>
+      <text class="muted">{{ store.ratingCount }}评</text>
+      <text class="muted">·</text>
+      <text class="muted">营业 {{ store.business }}</text>
+    </view>
+    <view class="row tags">
+      <van-tag wx:for="{{ store.tags }}" wx:key="*this" plain type="primary" custom-class="tag-item">{{ item }}</van-tag>
+    </view>
+    <view class="row-between action-row" bindtap="onOpenLocation">
+      <view class="row addr-block">
+        <van-icon name="location-o" color="#1989fa" />
+        <view class="flex-1 addr-text">{{ store.address }}</view>
+      </view>
+      <view class="distance">{{ store.distance < 1000 ? store.distance + 'm' : (store.distance / 1000).toFixed(1) + 'km' }}</view>
+    </view>
+    <view class="action-row" catchtap="onCallPhone">
+      <van-icon name="phone-o" color="#1989fa" />
+      <text class="phone">{{ store.phone }}</text>
+    </view>
+  </view>
+
+  <view class="section-title">门店介绍</view>
+  <view class="card">
+    <view class="intro">{{ store.intro }}</view>
+  </view>
+
+  <view class="section-title">选择包厢</view>
+  <view class="rooms">
+    <view class="room-card" wx:for="{{ store.rooms }}" wx:key="id">
+      <image src="{{ item.image }}" mode="aspectFill" class="room-img" />
+      <view class="room-content">
+        <view class="row-between">
+          <view class="room-name">{{ item.name }}</view>
+          <view class="room-status status-{{ item.status }}">{{ item.status === 'idle' ? '空闲' : '使用中' }}</view>
+        </view>
+        <view class="muted">可容纳 {{ item.capacity }} 人</view>
+        <view class="row-between footer">
+          <view class="price">
+            <text class="symbol">¥</text>
+            <text class="num">{{ (item.hourPrice / 100).toFixed(0) }}</text>
+            <text class="muted">/小时</text>
+          </view>
+          <van-button
+            size="small"
+            type="primary"
+            disabled="{{ item.status !== 'idle' }}"
+            data-id="{{ item.id }}"
+            bindtap="onPickRoom"
+          >立即预订</van-button>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view style="height: 60rpx;"></view>
+</view>

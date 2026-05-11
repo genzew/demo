@@ -1,0 +1,17 @@
+<view class="page invoice">
+  <view class="card">
+    <view class="muted" style="padding-bottom:12rpx;">抬头类型</view>
+    <view class="type-row">
+      <view class="type-chip {{ type === 'personal' ? 'active' : '' }}" data-value="personal" bindtap="onTypeChange">个人</view>
+      <view class="type-chip {{ type === 'company' ? 'active' : '' }}" data-value="company" bindtap="onTypeChange">企业</view>
+    </view>
+  </view>
+  <van-cell-group inset>
+    <van-field label="抬头" placeholder="请填写发票抬头" data-field="title" bind:input="onInput" value="{{ title }}" />
+    <van-field wx:if="{{ type === 'company' }}" label="税号" placeholder="请填写纳税人识别号" data-field="taxNo" bind:input="onInput" value="{{ taxNo }}" />
+    <van-field label="邮箱" placeholder="接收电子发票的邮箱" data-field="email" bind:input="onInput" value="{{ email }}" />
+  </van-cell-group>
+  <view style="padding:32rpx;">
+    <van-button type="primary" round block loading="{{ submitting }}" bindtap="onSubmit">提交申请</van-button>
+  </view>
+</view>

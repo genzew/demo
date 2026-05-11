@@ -1,0 +1,26 @@
+{
+  "miniprogramRoot": "./",
+  "appid": "touristappid",
+  "projectname": "demo-booking",
+  "description": "包厢预订小程序",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true,
+    "newFeature": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "minifyWXML": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "3.4.0",
+  "condition": {}
+}

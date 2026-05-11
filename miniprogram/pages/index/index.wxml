@@ -1,0 +1,64 @@
+<view class="page index">
+  <view class="header">
+    <view class="row-between location-bar">
+      <view class="row location" bindtap="goStoreList">
+        <van-icon name="location-o" color="#1989fa" />
+        <text class="loc-text">{{ location }}</text>
+        <van-icon name="arrow-down" size="12px" />
+      </view>
+      <view class="row scan-entry" bindtap="goScan">
+        <van-icon name="scan" />
+        <text>扫码开门</text>
+      </view>
+    </view>
+    <van-search
+      value=""
+      placeholder="搜索门店、地址"
+      shape="round"
+      background="transparent"
+      bindfocus="goStoreList"
+    />
+  </view>
+
+  <swiper class="banner" indicator-dots autoplay circular interval="3500" duration="500">
+    <swiper-item wx:for="{{ banners }}" wx:key="id" data-link="{{ item.link }}" bindtap="onBannerTap">
+      <image src="{{ item.image }}" mode="aspectFill" class="banner-img" />
+      <view class="banner-title">{{ item.title }}</view>
+    </swiper-item>
+  </swiper>
+
+  <view class="quick-grid">
+    <van-grid column-num="4" border="{{ false }}" gutter="0">
+      <van-grid-item icon="scan" text="扫码开门" bindtap="goScan" />
+      <van-grid-item icon="orders-o" text="我的订单" bindtap="goMyOrders" />
+      <van-grid-item icon="shop-o" text="附近门店" bindtap="goStoreList" />
+      <van-grid-item icon="gift-o" text="优惠券" bindtap="goActivity" />
+    </van-grid>
+  </view>
+
+  <view class="section-title">热门活动</view>
+  <scroll-view class="activity-scroll" scroll-x enable-flex>
+    <view class="activity-card" wx:for="{{ activities }}" wx:key="id" bindtap="goActivity">
+      <image src="{{ item.cover }}" mode="aspectFill" class="activity-cover" />
+      <view class="activity-tag">{{ item.tag }}</view>
+      <view class="activity-info">
+        <view class="activity-title text-ellipsis">{{ item.title }}</view>
+        <view class="activity-desc text-ellipsis">{{ item.desc }}</view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class="row-between section-title">
+    <text>为你推荐</text>
+    <text class="more" bindtap="goStoreList">查看全部 ›</text>
+  </view>
+
+  <block wx:if="{{ loading }}">
+    <view class="card" wx:for="{{ [1, 2, 3] }}" wx:key="*this">
+      <van-skeleton title row="3" loading />
+    </view>
+  </block>
+  <block wx:else>
+    <store-card wx:for="{{ stores }}" wx:key="id" store="{{ item }}" bind:tap="onStoreTap" />
+  </block>
+</view>

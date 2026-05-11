@@ -1,0 +1,13 @@
+.order-card { padding: 24rpx; }
+.store-name { flex: 1; font-size: 30rpx; font-weight: 600; }
+.status { font-size: 24rpx; padding: 2rpx 12rpx; border-radius: 8rpx; }
+.status-pending_pay { color: #ee0a24; background: rgba(238, 10, 36, 0.08); }
+.status-paid        { color: #1989fa; background: rgba(25, 137, 250, 0.08); }
+.status-in_use      { color: #07c160; background: rgba(7, 193, 96, 0.08); }
+.status-finished    { color: #969799; background: var(--gray-1); }
+.status-cancelled   { color: #969799; background: var(--gray-1); }
+.room { margin-top: 8rpx; font-size: 26rpx; }
+.time { margin-top: 4rpx; font-size: 26rpx; }
+.footer { margin-top: 16rpx; padding-top: 16rpx; border-top: 1rpx solid var(--gray-3); }
+.amount { color: #ee0a24; font-weight: 600; }
+.actions { display: flex; align-items: center; }

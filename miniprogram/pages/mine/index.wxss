@@ -1,0 +1,31 @@
+.profile-bg {
+  background: linear-gradient(135deg, #1989fa, #4caefb);
+  padding: 60rpx 32rpx 80rpx;
+  color: #fff;
+}
+.profile { display: flex; align-items: center; }
+.avatar { width: 120rpx; height: 120rpx; border-radius: 50%; border: 4rpx solid rgba(255,255,255,0.4); }
+.ml { margin-left: 24rpx; min-width: 0; }
+.nickname { font-size: 36rpx; font-weight: 600; }
+.phone { font-size: 24rpx; opacity: 0.8; margin-top: 4rpx; }
+.vip {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4rpx 16rpx;
+  border-radius: 20rpx;
+  font-size: 22rpx;
+  font-weight: 500;
+}
+
+.stats {
+  display: flex;
+  margin-top: 40rpx;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 16rpx;
+  padding: 24rpx 0;
+}
+.stat-item { flex: 1; text-align: center; }
+.stat-num { font-size: 36rpx; font-weight: 700; }
+.stat-label { font-size: 22rpx; opacity: 0.8; margin-top: 4rpx; }
+
+.logout { padding: 40rpx 32rpx; }
+.share-btn { display: none; }
