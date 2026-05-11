@@ -11,10 +11,12 @@ const envs = {
   }
 };
 
-module.exports = {
+const config = {
   env,
   ...envs[env],
   appName: '包厢预订',
   contactPhone: '400-000-0000',
   pageSize: 10
 };
+
+export default config;
