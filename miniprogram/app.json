@@ -42,8 +42,6 @@
       "desc": "用于获取附近门店"
     }
   },
-  "requiredPrivateInfos": ["getLocation", "chooseLocation"],
-  "lazyCodeLoading": "requiredComponents",
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }
