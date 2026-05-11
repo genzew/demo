@@ -1,3 +1,4 @@
+<wxs src="../../wxs/format.wxs" module="f" />
 <view class="page success" wx:if="{{ order }}">
   <view class="hero">
     <van-icon name="checked" size="120rpx" color="#07c160" />
@@ -10,7 +11,7 @@
     <view class="row-between info-row"><text class="label">门店</text><text>{{ order.storeName }}</text></view>
     <view class="row-between info-row"><text class="label">包厢</text><text>{{ order.roomName }}</text></view>
     <view class="row-between info-row"><text class="label">时间</text><text>{{ order.date }} {{ order.startTime }} - {{ order.endTime }}</text></view>
-    <view class="row-between info-row"><text class="label">实付</text><text class="amount">¥{{ (order.payAmount / 100).toFixed(2) }}</text></view>
+    <view class="row-between info-row"><text class="label">实付</text><text class="amount">¥{{ f.yuan(order.payAmount) }}</text></view>
   </view>
 
   <view class="actions">

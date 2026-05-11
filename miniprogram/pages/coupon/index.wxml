@@ -1,3 +1,4 @@
+<wxs src="../../wxs/format.wxs" module="f" />
 <view class="page">
   <van-tabs active="{{ activeTab }}" bind:change="onTabChange">
     <van-tab wx:for="{{ tabs }}" wx:key="key" title="{{ item.name }}" />
@@ -8,7 +9,7 @@
   <view class="card coupon" wx:for="{{ list }}" wx:key="id">
     <view class="amount">
       <text class="symbol">¥</text>
-      <text class="num">{{ (item.amount / 100).toFixed(0) }}</text>
+      <text class="num">{{ f.yuan(item.amount, 0) }}</text>
     </view>
     <view class="info flex-1">
       <view class="title">{{ item.title }}</view>

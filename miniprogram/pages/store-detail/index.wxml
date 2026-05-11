@@ -1,3 +1,4 @@
+<wxs src="../../wxs/format.wxs" module="f" />
 <view class="page store-detail" wx:if="{{ store }}">
   <swiper class="gallery" indicator-dots autoplay circular>
     <swiper-item wx:for="{{ store.images }}" wx:key="*this" data-current="{{ item }}" bindtap="onPreviewImage">
@@ -21,7 +22,7 @@
         <van-icon name="location-o" color="#1989fa" />
         <view class="flex-1 addr-text">{{ store.address }}</view>
       </view>
-      <view class="distance">{{ store.distance < 1000 ? store.distance + 'm' : (store.distance / 1000).toFixed(1) + 'km' }}</view>
+      <view class="distance">{{ f.distance(store.distance) }}</view>
     </view>
     <view class="action-row" catchtap="onCallPhone">
       <van-icon name="phone-o" color="#1989fa" />
@@ -47,7 +48,7 @@
         <view class="row-between footer">
           <view class="price">
             <text class="symbol">¥</text>
-            <text class="num">{{ (item.hourPrice / 100).toFixed(0) }}</text>
+            <text class="num">{{ f.yuan(item.hourPrice, 0) }}</text>
             <text class="muted">/小时</text>
           </view>
           <van-button

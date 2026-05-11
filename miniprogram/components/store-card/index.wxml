@@ -1,3 +1,4 @@
+<wxs src="../../wxs/format.wxs" module="f" />
 <view class="store-card" bindtap="onTap">
   <image class="cover" src="{{ store.cover }}" mode="aspectFill" />
   <view class="content">
@@ -6,7 +7,7 @@
       <text class="rating">★ {{ store.rating }}</text>
       <text class="muted">{{ store.ratingCount }}评</text>
       <text class="muted dot">·</text>
-      <text class="muted" wx:if="{{ store.distance != null }}">{{ store.distance < 1000 ? store.distance + 'm' : (store.distance / 1000).toFixed(1) + 'km' }}</text>
+      <text class="muted" wx:if="{{ store.distance != null }}">{{ f.distance(store.distance) }}</text>
     </view>
     <view class="row tags">
       <van-tag wx:for="{{ store.tags }}" wx:key="*this" plain type="primary" custom-class="tag-item">{{ item }}</van-tag>
@@ -15,7 +16,7 @@
       <view class="address text-ellipsis">{{ store.address }}</view>
       <view class="price">
         <text class="symbol">¥</text>
-        <text class="num">{{ (store.minPrice / 100).toFixed(0) }}</text>
+        <text class="num">{{ f.yuan(store.minPrice, 0) }}</text>
         <text class="muted">/小时起</text>
       </view>
     </view>

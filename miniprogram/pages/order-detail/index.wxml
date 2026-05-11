@@ -1,3 +1,4 @@
+<wxs src="../../wxs/format.wxs" module="f" />
 <view class="page" wx:if="{{ order }}">
   <view class="card status-card">
     <view class="status-text status-{{ order.status }}">{{ statusLabel[order.status] }}</view>
@@ -26,9 +27,9 @@
 
   <van-cell-group inset>
     <van-cell title="订单号" value="{{ order.orderId }}" />
-    <van-cell title="原价" value="¥{{ (order.totalAmount / 100).toFixed(2) }}" />
-    <van-cell wx:if="{{ order.couponAmount > 0 }}" title="优惠" value="-¥{{ (order.couponAmount / 100).toFixed(2) }}" value-class="text-danger" />
-    <van-cell title="实付" value="¥{{ (order.payAmount / 100).toFixed(2) }}" />
+    <van-cell title="原价" value="¥{{ f.yuan(order.totalAmount) }}" />
+    <van-cell wx:if="{{ order.couponAmount > 0 }}" title="优惠" value="-¥{{ f.yuan(order.couponAmount) }}" value-class="text-danger" />
+    <van-cell title="实付" value="¥{{ f.yuan(order.payAmount) }}" />
   </van-cell-group>
 
   <view class="bottom-bar safe-area">
@@ -48,7 +49,7 @@
   <van-popup show="{{ showExtend }}" round position="bottom" bind:close="onCloseExtend">
     <view class="extend-popup">
       <view class="popup-title">在线续时</view>
-      <view class="muted">每小时 ¥{{ (order.hourPrice / 100).toFixed(0) }}</view>
+      <view class="muted">每小时 ¥{{ f.yuan(order.hourPrice, 0) }}</view>
       <view class="row" style="margin: 32rpx 0;">
         <text>续时时长</text>
         <view style="margin-left:auto;">
@@ -57,7 +58,7 @@
       </view>
       <view class="row-between">
         <text>需补支付</text>
-        <text class="text-danger">¥{{ (order.hourPrice * extendHours / 100).toFixed(2) }}</text>
+        <text class="text-danger">¥{{ f.yuan(order.hourPrice * extendHours) }}</text>
       </view>
       <view style="height:24rpx;"></view>
       <van-button type="primary" round block bindtap="onExtendConfirm">确认续时</van-button>

@@ -1,3 +1,4 @@
+<wxs src="../../wxs/format.wxs" module="f" />
 <view class="page order-list">
   <van-tabs active="{{ activeTab }}" sticky bind:change="onTabChange">
     <van-tab wx:for="{{ tabs }}" wx:key="key" title="{{ item.name }}" />
@@ -20,7 +21,7 @@
       <view class="muted text-ellipsis room">{{ item.roomName }} · {{ item.hours }}小时</view>
       <view class="muted text-ellipsis time">{{ item.date }} {{ item.startTime }} - {{ item.endTime }}</view>
       <view class="row-between footer">
-        <view class="amount">实付 ¥{{ (item.payAmount / 100).toFixed(2) }}</view>
+        <view class="amount">实付 ¥{{ f.yuan(item.payAmount) }}</view>
         <view class="actions">
           <van-button
             wx:if="{{ item.status === 'pending_pay' }}"

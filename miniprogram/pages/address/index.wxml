@@ -1,8 +1,9 @@
+<wxs src="../../wxs/format.wxs" module="f" />
 <view class="page">
   <view class="card record" wx:for="{{ records }}" wx:key="id">
     <view class="row-between">
       <view class="type">{{ item.type }}</view>
-      <view class="amount {{ item.amount < 0 ? 'neg' : 'pos' }}">{{ item.amount < 0 ? '' : '+' }}¥{{ (item.amount / 100).toFixed(2) }}</view>
+      <view class="amount {{ item.amount < 0 ? 'neg' : 'pos' }}">{{ item.amount < 0 ? '' : '+' }}¥{{ f.yuan(item.amount) }}</view>
     </view>
     <view class="muted" style="margin-top:6rpx;">{{ item.remark }}</view>
     <view class="muted" style="margin-top:4rpx;">{{ item.time }}</view>

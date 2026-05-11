@@ -1,0 +1,27 @@
+// WXML 表达式不支持方法调用，统一在 WXS 里做格式化。
+
+var yuan = function (cents, decimals) {
+  if (cents == null) return '0.00';
+  decimals = decimals == null ? 2 : decimals;
+  var sign = cents < 0 ? '-' : '';
+  var abs = cents < 0 ? -cents : cents;
+  return sign + (abs / 100).toFixed(decimals);
+};
+
+var distance = function (m) {
+  if (m == null) return '';
+  if (m < 1000) return m + 'm';
+  return (m / 1000).toFixed(1) + 'km';
+};
+
+var couponHint = function (couponAmount, couponLen) {
+  if (couponAmount > 0) return '已优惠 ¥' + (couponAmount / 100).toFixed(2);
+  if (couponLen > 0) return couponLen + ' 张可用';
+  return '暂无可用';
+};
+
+module.exports = {
+  yuan: yuan,
+  distance: distance,
+  couponHint: couponHint
+};

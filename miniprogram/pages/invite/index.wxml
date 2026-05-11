@@ -1,3 +1,4 @@
+<wxs src="../../wxs/format.wxs" module="f" />
 <view class="page invite" wx:if="{{ info }}">
   <view class="hero">
     <view class="title">邀请好友 双方各得 ¥30</view>
@@ -5,7 +6,7 @@
   </view>
   <view class="card stat">
     <view class="stat-item"><view class="num">{{ info.invitedCount }}</view><view class="muted">已邀请</view></view>
-    <view class="stat-item"><view class="num">¥{{ (info.rewardAmount / 100).toFixed(0) }}</view><view class="muted">已获奖励</view></view>
+    <view class="stat-item"><view class="num">¥{{ f.yuan(info.rewardAmount, 0) }}</view><view class="muted">已获奖励</view></view>
   </view>
   <view class="card code-card">
     <view class="muted">我的邀请码</view>
