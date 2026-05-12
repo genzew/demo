@@ -1,4 +1,7 @@
 <view class="page index">
+  <view style="padding:40rpx; background:#ee0a24; color:#fff; font-size:30rpx; text-align:center;">
+    DEBUG: WXML 已渲染 | loading={{loading}} | banners={{banners.length}}
+  </view>
   <view class="header">
     <view class="row-between location-bar">
       <view class="row location" bindtap="goStoreList">
